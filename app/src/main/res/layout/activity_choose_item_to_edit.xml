@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center|top"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".ChooseItemToEdit">
+
+    <include
+        layout="@layout/app_bar_back"
+        android:id="@+id/app_bar_back"
+        ></include>
+
+    <TextView
+        android:id="@+id/deleteText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="Tap on the item you want to edit"/>
+
+    <ListView
+        android:id="@+id/editList"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:divider="@color/colorDivider"
+        android:listSelector="@color/pressed_color"
+        android:choiceMode="singleChoice"
+        android:dividerHeight="1dip" />
+
+</LinearLayout>

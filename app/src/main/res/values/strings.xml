@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">a collecters inventory</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="not_registerd_sign_up_here">Not registerd? Sign up here</string>
+    <string name="Username">Username</string>
+    <string name="singupBtn">Sign up</string>
+    <string name="loginLink">Already have an account? Login here</string>
+    <string name="sign_up_header">Sign Up</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="my_inventory">My inventory</string>
+    <string name="addToInventory">Add to your Inventory</string>
+    <string name="inventory1" />
+    <string name="addToInventoryPluss" />
+    <string name="add_item_btn">Add Item</string>
+    <string name="delete_item_icon">Delete Item</string>
+
+    <!-- Strings for navigation menu !-->
+    <string name="nav_home">My Inventory</string>
+    <string name="nav_communitypage">Community page</string>
+    <string name="nav_add">Add To My Inventory</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_logout">Log out</string>
+    <string name="nav_open_drawer">Open navigation</string>
+    <string name="nav_close_drawer">Close navigation</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
