@@ -129,7 +129,6 @@ public class ItemShow extends AppCompatActivity {
             Toast.makeText(this, "SQL Exception", Toast.LENGTH_LONG).show();
         }
 
-        Toast.makeText(this, mycursor.toString(), Toast.LENGTH_LONG).show();
         if(mycursor.getCount() > 0){
             while(mycursor.moveToNext()){
                 res.append(mycursor.getString(0) + " ");
