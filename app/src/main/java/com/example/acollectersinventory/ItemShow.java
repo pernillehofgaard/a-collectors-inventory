@@ -120,24 +120,30 @@ public class ItemShow extends AppCompatActivity {
     }
 
     public void shareItem(){
-        String item = getIntent().getStringExtra("ITEM");
-        String res = "";
+        String category = getIntent().getStringExtra("ITEM");
+        String email = getIntent().getStringExtra("EMAIL");
+        StringBuilder res = new StringBuilder();
         try {
             mydb = mydbhelper.getWritableDatabase();
-            mycursor = mydb.rawQuery("SELECT * FROM Inventory WHERE Category = '" + item +"'", null );
+            mycursor = mydb.rawQuery("SELECT _id, Title, Description FROM Inventory WHERE Category = '" + category +"' AND Email = '"+ email + "'", null );
         }catch (SQLException e){
             Toast.makeText(this, "SQL Exception", Toast.LENGTH_LONG).show();
         }
 
+        Toast.makeText(this, mycursor.toString(), Toast.LENGTH_LONG).show();
+        int i = 0;
         if(mycursor.getCount() > 0){
-            for (int i = 0; i < mycursor.getCount(); ++ i){
-                res += mycursor.getString(i);
+            while(mycursor.moveToNext()){
+                res.append(mycursor.getString(i));
+                i ++;
             }
+            Toast.makeText(this, res.toString(), Toast.LENGTH_LONG).show();
         }
+//        mycursor.close();
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, item);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, res);
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, category);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, res.toString());
         startActivity(Intent.createChooser(shareIntent, "share using"));
     }
 }

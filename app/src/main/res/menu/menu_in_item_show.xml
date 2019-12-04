@@ -16,7 +16,7 @@
 
     <item
         android:id="@+id/shareItem"
-        android:title="Share Item"
+        android:title="Share Item(s) category"
         android:orderInCategory="3"
         android:icon="@drawable/bg_key"/>
 </menu>
