@@ -59,8 +59,6 @@ public class ItemShow extends AppCompatActivity {
 
         adapter = new SimpleCursorAdapter(this, R.layout.show_item_layout, mycursor, new String[]{"_id", "Title", "Description"}, new int[]{R.id.idField, R.id.titleField, R.id.descriptionField}, 0);
         itemList.setAdapter(adapter);
-
-
     }
 
     public void goToAddToCategory(View view) {
@@ -123,6 +121,7 @@ public class ItemShow extends AppCompatActivity {
         String category = getIntent().getStringExtra("ITEM");
         String email = getIntent().getStringExtra("EMAIL");
         StringBuilder res = new StringBuilder();
+        res.append("Kategori: " + category + "\n");
         try {
             mydb = mydbhelper.getWritableDatabase();
             mycursor = mydb.rawQuery("SELECT _id, Title, Description FROM Inventory WHERE Category = '" + category +"' AND Email = '"+ email + "'", null );
@@ -131,19 +130,18 @@ public class ItemShow extends AppCompatActivity {
         }
 
         Toast.makeText(this, mycursor.toString(), Toast.LENGTH_LONG).show();
-        int i = 0;
         if(mycursor.getCount() > 0){
             while(mycursor.moveToNext()){
-                res.append(mycursor.getString(i));
-                i ++;
+                res.append(mycursor.getString(0) + " ");
+                res.append(mycursor.getString(1) + " ");
+                res.append(mycursor.getString(2));
+                res.append("\n");
             }
-            Toast.makeText(this, res.toString(), Toast.LENGTH_LONG).show();
         }
-//        mycursor.close();
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, category);
         shareIntent.putExtra(Intent.EXTRA_TEXT, res.toString());
-        startActivity(Intent.createChooser(shareIntent, "share using"));
+        startActivity(Intent.createChooser(shareIntent, "Share using"));
     }
 }
