@@ -2,7 +2,6 @@ package com.example.acollectersinventory;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -19,7 +18,6 @@ import android.widget.Toast;
 public class DeleteItem extends AppCompatActivity {
     SQLiteDatabase mydb;
     SQLiteOpenHelper mydbhelper;
-    SqlHelper db;
     ListView itemList;
     Cursor mycursor;
     CursorAdapter adapter;

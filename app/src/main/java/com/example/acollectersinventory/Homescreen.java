@@ -1,12 +1,9 @@
 package com.example.acollectersinventory;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -19,13 +16,10 @@ import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Menu;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
+
 
 public class Homescreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
     SQLiteDatabase mydb;
@@ -100,7 +94,7 @@ public class Homescreen extends AppCompatActivity implements NavigationView.OnNa
 
     public boolean onNavigationItemSelected(MenuItem item){
         int id = item.getItemId();
-        Intent activity = null;
+        Intent activity;
 
         switch (id){
             case R.id.nav_logout:
@@ -113,9 +107,7 @@ public class Homescreen extends AppCompatActivity implements NavigationView.OnNa
             default:
                 activity = new Intent(this, Homescreen.class);
         }
-        if(activity != null){
-            startActivity(activity);
-        }
+        startActivity(activity);
         return true;
     }
 
